@@ -85,11 +85,11 @@
 const lineChartSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Stock prices of 5 Tech Companies over Time.",
-  "data": {"url": "data/stocks.csv"},
+  "data": {"url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW4/main/data/total_world_gdp_data.csv"},
   "mark": "line",
   "encoding": {
-    "x": {"field": "date", "type": "temporal"},
-    "y": {"field": "price", "type": "quantitative"},
+    "x": {"field": "Year", "type": "temporal"},
+    "y": {"field": "GDP_per_capita", "type": "quantitative"},
     "color": {"field": "symbol", "type": "nominal"}
   }
 }
