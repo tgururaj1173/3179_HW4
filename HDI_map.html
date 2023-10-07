@@ -80,6 +80,21 @@
   ],
   "config": {}
 };
+
+<div id="line-chart"/>
+const lineChartSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Stock prices of 5 Tech Companies over Time.",
+  "data": {"url": "data/stocks.csv"},
+  "mark": "line",
+  "encoding": {
+    "x": {"field": "date", "type": "temporal"},
+    "y": {"field": "price", "type": "quantitative"},
+    "color": {"field": "symbol", "type": "nominal"}
+  }
+}
+
+
     vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
   </script>
 </body>
