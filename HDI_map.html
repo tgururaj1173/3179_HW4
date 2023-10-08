@@ -11,12 +11,13 @@
     const spec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "Global Human Development Index 2021",
-  "width": 800,
-  "height": 400,
+  "width": 600,
+  "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW3/main/ne_110m_admin_0_countries.json",
     "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
   },
+  
   "projection": {"type": "equalEarth"},
   "layer": [
     {
@@ -81,21 +82,45 @@
   "config": {}
 };
 
-<div id="line-chart"/>
 const lineChartSpec = {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Stock prices of 5 Tech Companies over Time.",
-  "data": {"url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW4/main/data/total_world_gdp_data.csv"},
+  "title": "Global Human Development Index 2021",
+  "width": 600,
+  "height": 300,
+  "description": "GDP per Capita for all countries",
+  "data": {"url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW4/main/data/reshaped_gdp_data.csv"},
   "mark": "line",
   "encoding": {
     "x": {"field": "Year", "type": "temporal"},
     "y": {"field": "GDP_per_capita", "type": "quantitative"},
     "color": {"field": "symbol", "type": "nominal"}
   }
+};
+
+const visualizations = [spec, lineChartSpec];
+
+const combinedSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "vconcat": visualizations
 }
 
+// <div id="line-chart"/>
+// const lineChartSpec = {
+//   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+//   "description": "Stock prices of 5 Tech Companies over Time.",
+//   "data": {"url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW4/main/data/total_world_gdp_data.csv"},
+//   "mark": "line",
+//   "encoding": {
+//     "x": {"field": "Year", "type": "temporal"},
+//     "y": {"field": "GDP_per_capita", "type": "quantitative"},
+//     "color": {"field": "symbol", "type": "nominal"}
+//   },
+// };
 
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+
+    vegaEmbed("#vis", combinedSpec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
   </script>
 </body>
 </html>
+
+
