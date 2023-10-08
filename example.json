@@ -1,10 +1,10 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Global Human Development Index 2021",
     "vconcat": [
       {
         "width": 600,
         "height": 300,
+        "title": "Global Human Development Index 2021",
         "data": {
           "url": "https://raw.githubusercontent.com/tgururaj1173/3179_HW3/main/ne_110m_admin_0_countries.json",
           "format": {"type": "topojson", "feature": "ne_110m_admin_0_countries"}
